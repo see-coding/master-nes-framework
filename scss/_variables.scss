@@ -1,0 +1,45 @@
+// Master‑NES‑Styles variables
+//
+// This file exposes all CSS custom properties as Sass variables.
+// Import this file in your own SCSS to override the values.
+
+$mn-font-family: 'Press Start 2P', monospace !default;
+$mn-base-font-size: 14px !default;
+$mn-line-height: 1.5 !default;
+
+// Light theme colours
+$mn-bg: #fafafa !default;
+$mn-surface: #ffffff !default;
+$mn-text: #202020 !default;
+$mn-border: #d0d0d0 !default;
+$mn-primary: #e76e55 !default;
+$mn-secondary: #4a90e2 !default;
+$mn-accent: #8cd55c !default;
+$mn-shadow: rgba(0, 0, 0, 0.1) !default;
+
+// SNES palette
+$mn-snes-nature: #7bd56c !default;
+$mn-snes-plumber: #e94f64 !default;
+$mn-snes-sunshine: #f5c94c !default;
+$mn-snes-ocean: #4d90fe !default;
+$mn-snes-turquoise: #3bc0a5 !default;
+$mn-snes-phantom: #5f5cf4 !default;
+$mn-snes-rose: #f05fa6 !default;
+$mn-snes-galaxy: #7b5cf5 !default;
+$mn-snes-ember: #f08a24 !default;
+
+// Spacing scale
+$mn-spacing-0: 0 !default;
+$mn-spacing-1: 0.25rem !default;
+$mn-spacing-2: 0.5rem !default;
+$mn-spacing-3: 1rem !default;
+$mn-spacing-4: 1.5rem !default;
+$mn-spacing-5: 3rem !default;
+
+// Gutters and breakpoints
+$mn-gutter: 1rem !default;
+$mn-gap: 1rem !default;
+$mn-breakpoint-sm: 576px !default;
+$mn-breakpoint-md: 768px !default;
+$mn-breakpoint-lg: 992px !default;
+$mn-breakpoint-xl: 1200px !default;

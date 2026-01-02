@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master‑NES‑Styles Demo</title>
+  <!-- Include the compiled CSS for Master‑NES‑Styles -->
+  <link rel="stylesheet" href="../dist/master-nes-styles.css">
+  <!-- Custom styles for the demo page layout -->
+  <style>
+    body {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+    }
+    /* Fixed sidebar navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+      max-width: 280px;
+      width: 100%;
+      padding: var(--mn-spacing-4);
+      background-color: var(--mn-surface);
+      border-right: 4px solid var(--mn-border);
+      box-shadow: 4px 0 0 0 var(--mn-shadow);
+      height: 100vh;
+      overflow-y: auto;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav li {
+      margin-bottom: var(--mn-spacing-2);
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--mn-primary);
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      flex: 1;
+      padding: var(--mn-spacing-4);
+      overflow-x: hidden;
+    }
+    section {
+      margin-bottom: var(--mn-spacing-5);
+    }
+    code {
+      background-color: var(--mn-surface);
+      border: 4px solid var(--mn-border);
+      padding: var(--mn-spacing-1);
+      display: block;
+      overflow-x: auto;
+      margin-top: var(--mn-spacing-1);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2 class="title">Demo Navigation</h2>
+    <ul class="nes-list is-disc">
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#texts">Texts</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#controls">Radio &amp; Checkbox</a></li>
+      <li><a href="#inputs">Inputs</a></li>
+      <li><a href="#lists">Lists</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#grid">Grid &amp; Layout</a></li>
+      <li><a href="#themes">Themes</a></li>
+      <li><a href="#snes">SNES Sub‑style</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1 class="title">Master‑NES‑Styles Demo</h1>
+    <p>Diese Demo zeigt die wichtigsten Komponenten des <strong>Master‑NES‑Styles</strong> Frameworks. Nutzen Sie die Navigation links, um zu den einzelnen Abschnitten zu springen.</p>
+    <button class="nes-btn is-primary" onclick="masterNES.toggleTheme()">Theme wechseln</button>
+
+    <!-- Intro Section -->
+    <section id="intro">
+      <h2 class="title">Intro</h2>
+      <p>Das Framework kombiniert NES.css, NES.icons und snes.css und erweitert diese um ein responsives Grid, Utility‑Klassen sowie Light/Dark‑Modus. Die Komponenten in dieser Demo stammen aus NES.css und snes.css und sind mit unseren eigenen Helfern arrangiert.</p>
+    </section>
+
+    <!-- Text Styles Section -->
+    <section id="texts">
+      <h2 class="title">Textstile</h2>
+      <p>Standardtext erhält den NES-Pixellook dank der Schrift <em>Press Start 2P</em>. Zusätzlich sind farbige Textklassen verfügbar:</p>
+      <div class="nes-container with-title">
+        <p class="nes-text is-primary">Primary</p>
+        <p class="nes-text is-success">Success</p>
+        <p class="nes-text is-warning">Warning</p>
+        <p class="nes-text is-error">Error</p>
+        <p class="nes-text is-disabled">Disabled</p>
+      </div>
+    </section>
+
+    <!-- Buttons Section -->
+    <section id="buttons">
+      <h2 class="title">Buttons</h2>
+      <p>Es gibt verschiedene Button‑Stile, die Sie kombinieren können:</p>
+      <div class="mn-row">
+        <div class="mn-span-12 mn-span-md-6 mn-span-lg-4">
+          <a class="nes-btn" href="#">Normal</a>
+        </div>
+        <div class="mn-span-12 mn-span-md-6 mn-span-lg-4">
+          <button type="button" class="nes-btn is-primary">Primary</button>
+        </div>
+        <div class="mn-span-12 mn-span-md-6 mn-span-lg-4">
+          <button type="button" class="nes-btn is-success">Success</button>
+        </div>
+        <div class="mn-span-12 mn-span-md-6 mn-span-lg-4">
+          <button type="button" class="nes-btn is-warning">Warning</button>
+        </div>
+        <div class="mn-span-12 mn-span-md-6 mn-span-lg-4">
+          <button type="button" class="nes-btn is-error">Error</button>
+        </div>
+        <div class="mn-span-12 mn-span-md-6 mn-span-lg-4">
+          <button type="button" class="nes-btn is-disabled">Disabled</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Radio and Checkbox Controls Section -->
+    <section id="controls">
+      <h2 class="title">Radio- &amp; Checkbox</h2>
+      <div class="mn-row">
+        <div class="mn-span-12 mn-span-md-6">
+          <h3>Radios</h3>
+          <label><input type="radio" class="nes-radio" name="radio-demo" checked> <span>Ja</span></label>
+          <label><input type="radio" class="nes-radio" name="radio-demo"> <span>Nein</span></label>
+          <div style="background-color: var(--mn-border); padding: var(--mn-spacing-2); margin-top: var(--mn-spacing-2);">
+            <label><input type="radio" class="nes-radio is-dark" name="radio-demo-dark" checked> <span>Ja</span></label>
+            <label><input type="radio" class="nes-radio is-dark" name="radio-demo-dark"> <span>Nein</span></label>
+          </div>
+        </div>
+        <div class="mn-span-12 mn-span-md-6">
+          <h3>Checkboxes</h3>
+          <label><input type="checkbox" class="nes-checkbox" checked> <span>Aktiv</span></label>
+          <div style="background-color: var(--mn-border); padding: var(--mn-spacing-2); margin-top: var(--mn-spacing-2);">
+            <label><input type="checkbox" class="nes-checkbox is-dark" checked> <span>Dark</span></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inputs Section -->
+    <section id="inputs">
+      <h2 class="title">Inputs &amp; Formulare</h2>
+      <div class="mn-row">
+        <div class="mn-span-12 mn-span-md-6">
+          <div class="nes-field">
+            <label for="name_field">Dein Name</label>
+            <input type="text" id="name_field" class="nes-input" placeholder="Mario">
+          </div>
+          <div class="nes-field is-inline">
+            <label for="success_field">.input.is-success</label>
+            <input type="text" id="success_field" class="nes-input is-success" placeholder="Erfolgreich">
+          </div>
+          <div class="nes-field is-inline">
+            <label for="warning_field">.input.is-warning</label>
+            <input type="text" id="warning_field" class="nes-input is-warning" placeholder="Warnung">
+          </div>
+          <div class="nes-field is-inline">
+            <label for="error_field">.input.is-error</label>
+            <input type="text" id="error_field" class="nes-input is-error" placeholder="Fehler">
+          </div>
+        </div>
+        <div class="mn-span-12 mn-span-md-6">
+          <div class="nes-field">
+            <label for="default_select">Default select</label>
+            <div class="nes-select">
+              <select required id="default_select">
+                <option value="" disabled selected hidden>Wähle…</option>
+                <option value="0">Zu sein</option>
+                <option value="1">Nicht zu sein</option>
+              </select>
+            </div>
+          </div>
+          <div class="nes-field">
+            <label for="success_select">.is-success</label>
+            <div class="nes-select is-success">
+              <select required id="success_select">
+                <option value="" disabled selected hidden>Wähle…</option>
+                <option value="0">Zu sein</option>
+                <option value="1">Nicht zu sein</option>
+              </select>
+            </div>
+          </div>
+          <div class="nes-field">
+            <label for="warning_select">.is-warning</label>
+            <div class="nes-select is-warning">
+              <select required id="warning_select">
+                <option value="" disabled selected hidden>Wähle…</option>
+                <option value="0">Zu sein</option>
+                <option value="1">Nicht zu sein</option>
+              </select>
+            </div>
+          </div>
+          <div class="nes-field">
+            <label for="error_select">.is-error</label>
+            <div class="nes-select is-error">
+              <select required id="error_select">
+                <option value="" disabled selected hidden>Wähle…</option>
+                <option value="0">Zu sein</option>
+                <option value="1">Nicht zu sein</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lists Section -->
+    <section id="lists">
+      <h2 class="title">Listen</h2>
+      <p>Verwende NES- und SNES-Listenstile für nummerierte oder ungeordnete Listen:</p>
+      <div class="mn-row">
+        <div class="mn-span-12 mn-span-md-6">
+          <h3>NES Liste</h3>
+          <ul class="nes-list is-disc">
+            <li>Sorry, Mario</li>
+            <li>But the Princess</li>
+            <li>Is in another castle</li>
+          </ul>
+          <ol class="nes-list is-decimal">
+            <li>Erster Eintrag</li>
+            <li>Zweiter Eintrag</li>
+            <li>Dritter Eintrag</li>
+          </ol>
+        </div>
+        <div class="mn-span-12 mn-span-md-6">
+          <h3>SNES farbige Liste</h3>
+          <ul class="snes-list is-plumber-list-color">
+            <li>Ma'am, you're mistaken.</li>
+            <li>I'm not a pet.</li>
+            <li>I'm a Knight.</li>
+            <li>And master swordsman.</li>
+          </ul>
+          <ul class="snes-list is-nature-list-color">
+            <li>Estuans interius</li>
+            <li>Ira vehementi</li>
+            <li>SEPHIROTH!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Icons Section -->
+    <section id="icons">
+      <h2 class="title">Icons</h2>
+      <p>Master‑NES‑Styles bindet die <em>NES.icons</em> Bibliothek ein. Hier ein paar Beispiele:</p>
+      <div class="mn-row">
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon coin"></i>
+        </div>
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon heart"></i>
+        </div>
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon heart is-half"></i>
+        </div>
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon star"></i>
+        </div>
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon like"></i>
+        </div>
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon trophy"></i>
+        </div>
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon twitter"></i>
+        </div>
+        <div class="mn-span-3 mn-span-sm-2 mn-span-md-1">
+          <i class="nes-icon github"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid Section -->
+    <section id="grid">
+      <h2 class="title">Grid &amp; Layout</h2>
+      <p>Verwenden Sie das 12‑Spalten‑Grid, um responsive Layouts zu erstellen. Unten sehen Sie ein Beispiel, wie Spalten je nach Bildschirmbreite unterschiedlich breit werden:</p>
+      <div class="mn-container" style="background-color: var(--mn-border); padding: var(--mn-spacing-3);">
+        <div class="mn-row">
+          <div class="mn-span-12 mn-span-sm-6 mn-span-md-4 mn-span-lg-3">
+            <div class="mn-card">.mn-span-12 .mn-span-sm-6 .mn-span-md-4 .mn-span-lg-3</div>
+          </div>
+          <div class="mn-span-12 mn-span-sm-6 mn-span-md-4 mn-span-lg-3">
+            <div class="mn-card">.mn-span-12 .mn-span-sm-6 .mn-span-md-4 .mn-span-lg-3</div>
+          </div>
+          <div class="mn-span-12 mn-span-sm-6 mn-span-md-4 mn-span-lg-3">
+            <div class="mn-card">.mn-span-12 .mn-span-sm-6 .mn-span-md-4 .mn-span-lg-3</div>
+          </div>
+          <div class="mn-span-12 mn-span-sm-6 mn-span-md-4 mn-span-lg-3">
+            <div class="mn-card">.mn-span-12 .mn-span-sm-6 .mn-span-md-4 .mn-span-lg-3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Theme Section -->
+    <section id="themes">
+      <h2 class="title">Themes: Light &amp; Dark</h2>
+      <p>Du kannst zwischen hellen und dunklen Farben wechseln. Klicke dazu auf den Button oben oder setze die <code>data-theme</code> Eigenschaft im <code>&lt;html&gt;</code> Element auf <code>"dark"</code>.</p>
+      <div class="mn-row">
+        <div class="mn-span-12 mn-span-md-6">
+          <div class="mn-card">
+            <h3>Light Mode</h3>
+            <p>Standardmäßig ist das Theme hell. Wenn du den Button klickst, werden Hintergrund- und Schriftfarben angepasst.</p>
+          </div>
+        </div>
+        <div class="mn-span-12 mn-span-md-6">
+          <div class="mn-card">
+            <h3>Dark Mode</h3>
+            <p>Im dunklen Modus werden die Farben invertiert, um auf dunklem Hintergrund besser lesbar zu sein.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SNES Sub-style Section -->
+    <section id="snes">
+      <h2 class="title">SNES Sub‑style</h2>
+      <p>Der <em>SNES</em> Sub‑style bringt eine erweiterte Farbpalette. Verwende die Klasse <code>.mn-snes</code> oder die von snes.css bereitgestellten Farbklassen:</p>
+      <div class="mn-row mn-snes">
+        <div class="mn-span-12 mn-span-sm-6 mn-span-md-4">
+          <button class="snes-button">Nature</button>
+        </div>
+        <div class="mn-span-12 mn-span-sm-6 mn-span-md-4">
+          <button class="snes-button has-plumber-color">Plumber</button>
+        </div>
+        <div class="mn-span-12 mn-span-sm-6 mn-span-md-4">
+          <button class="snes-button has-galaxy-color">Galaxy</button>
+        </div>
+        <div class="mn-span-12 mn-span-sm-6 mn-span-md-4">
+          <p class="text-nature-color">Nature</p>
+        </div>
+        <div class="mn-span-12 mn-span-sm-6 mn-span-md-4">
+          <p class="text-plumber-color">Plumber</p>
+        </div>
+        <div class="mn-span-12 mn-span-sm-6 mn-span-md-4">
+          <p class="text-galaxy-color">Galaxy</p>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top: var(--mn-spacing-5); padding-top: var(--mn-spacing-2); border-top: 4px solid var(--mn-border);">
+      <p>Master‑NES‑Styles © 2026 – Demo Page. Inspiriert von NES.css &amp; snes.css.</p>
+    </footer>
+  </main>
+  <!-- Include theme helper script -->
+  <script src="../dist/master-nes-styles.js"></script>
+</body>
+</html>

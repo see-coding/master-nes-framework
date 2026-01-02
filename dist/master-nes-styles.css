@@ -1,0 +1,265 @@
+/*!
+ * Master‑NES‑Styles
+ *
+ * A responsive, retro‑inspired CSS framework built on top of NES.css,
+ * NES.icons and snes.css.  Provides a flexible grid system, dark/light
+ * theme support and utility classes.  You may copy, modify and
+ * distribute this file under the terms of the MIT licence included
+ * with this distribution.
+ */
+
+/* Import upstream dependencies */
+@import url('https://unpkg.com/nes.css@latest/css/nes.min.css');
+@import url('https://unpkg.com/nes.icons@latest/css/nes-icons.min.css');
+@import url('https://unpkg.com/snes.css@latest/dist/snes.min.css');
+
+/* Load Press Start 2P font – the recommended font for NES.css
+   (OFL 1.1 licence).  You can omit this if you prefer another typeface. */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Root variables controlling typography, colours and spacing.  These
+   variables are used throughout the framework and can be overridden in
+   your own CSS or via a preprocessor such as Sass. */
+:root {
+  /* Typography */
+  --mn-font-family: 'Press Start 2P', monospace;
+  --mn-base-font-size: 14px;
+  --mn-line-height: 1.5;
+
+  /* Colour palette – light theme (default) */
+  --mn-bg: #fafafa;
+  --mn-surface: #ffffff;
+  --mn-text: #202020;
+  --mn-border: #d0d0d0;
+  --mn-primary: #e76e55; /* NES red-orange */
+  --mn-secondary: #4a90e2; /* NES blue */
+  --mn-accent: #8cd55c; /* NES green */
+  --mn-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Colour palette – SNES accent colours (used when `.mn-snes` wrapper is present) */
+  --mn-snes-nature: #7bd56c;
+  --mn-snes-plumber: #e94f64;
+  --mn-snes-sunshine: #f5c94c;
+  --mn-snes-ocean: #4d90fe;
+  --mn-snes-turquoise: #3bc0a5;
+  --mn-snes-phantom: #5f5cf4;
+  --mn-snes-rose: #f05fa6;
+  --mn-snes-galaxy: #7b5cf5;
+  --mn-snes-ember: #f08a24;
+
+  /* Spacing scale (rem units) */
+  --mn-spacing-0: 0;
+  --mn-spacing-1: 0.25rem;
+  --mn-spacing-2: 0.5rem;
+  --mn-spacing-3: 1rem;
+  --mn-spacing-4: 1.5rem;
+  --mn-spacing-5: 3rem;
+
+  /* Grid configuration */
+  --mn-gutter: 1rem;
+  --mn-gap: 1rem;
+  /* Breakpoints */
+  --mn-breakpoint-sm: 576px;
+  --mn-breakpoint-md: 768px;
+  --mn-breakpoint-lg: 992px;
+  --mn-breakpoint-xl: 1200px;
+}
+
+/* Dark theme overrides.  When the `data-theme` attribute on html
+   equals "dark", these variables replace the defaults. */
+[data-theme="dark"] {
+  --mn-bg: #0f0f0f;
+  --mn-surface: #161616;
+  --mn-text: #f4f4f4;
+  --mn-border: #333333;
+  --mn-shadow: rgba(0, 0, 0, 0.6);
+  --mn-primary: #ff9876;
+  --mn-secondary: #76a6ff;
+  --mn-accent: #a6e974;
+}
+
+/* Base element styles */
+html {
+  font-size: var(--mn-base-font-size);
+}
+
+body {
+  background-color: var(--mn-bg);
+  color: var(--mn-text);
+  font-family: var(--mn-font-family);
+  line-height: var(--mn-line-height);
+  margin: 0;
+  padding: 0;
+}
+
+/* Containers */
+.mn-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--mn-gutter);
+  padding-right: var(--mn-gutter);
+  box-sizing: border-box;
+}
+
+/* Grid row using CSS grid for equal height columns and flexible widths.  The
+   grid has 12 columns by default; children can span any number of columns
+   using the classes defined below. */
+.mn-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--mn-gap);
+}
+
+/* Column span classes.  Each class sets `grid-column` to span N
+   tracks.  The default (mobile) span classes apply on all screen sizes. */
+.mn-span-1 { grid-column: span 1; }
+.mn-span-2 { grid-column: span 2; }
+.mn-span-3 { grid-column: span 3; }
+.mn-span-4 { grid-column: span 4; }
+.mn-span-5 { grid-column: span 5; }
+.mn-span-6 { grid-column: span 6; }
+.mn-span-7 { grid-column: span 7; }
+.mn-span-8 { grid-column: span 8; }
+.mn-span-9 { grid-column: span 9; }
+.mn-span-10 { grid-column: span 10; }
+.mn-span-11 { grid-column: span 11; }
+.mn-span-12 { grid-column: span 12; }
+
+/* Responsive column spans for small (≥576px) screens */
+@media (min-width: 576px) {
+  .mn-span-sm-1 { grid-column: span 1; }
+  .mn-span-sm-2 { grid-column: span 2; }
+  .mn-span-sm-3 { grid-column: span 3; }
+  .mn-span-sm-4 { grid-column: span 4; }
+  .mn-span-sm-5 { grid-column: span 5; }
+  .mn-span-sm-6 { grid-column: span 6; }
+  .mn-span-sm-7 { grid-column: span 7; }
+  .mn-span-sm-8 { grid-column: span 8; }
+  .mn-span-sm-9 { grid-column: span 9; }
+  .mn-span-sm-10 { grid-column: span 10; }
+  .mn-span-sm-11 { grid-column: span 11; }
+  .mn-span-sm-12 { grid-column: span 12; }
+}
+
+/* Responsive column spans for medium (≥768px) screens */
+@media (min-width: 768px) {
+  .mn-span-md-1 { grid-column: span 1; }
+  .mn-span-md-2 { grid-column: span 2; }
+  .mn-span-md-3 { grid-column: span 3; }
+  .mn-span-md-4 { grid-column: span 4; }
+  .mn-span-md-5 { grid-column: span 5; }
+  .mn-span-md-6 { grid-column: span 6; }
+  .mn-span-md-7 { grid-column: span 7; }
+  .mn-span-md-8 { grid-column: span 8; }
+  .mn-span-md-9 { grid-column: span 9; }
+  .mn-span-md-10 { grid-column: span 10; }
+  .mn-span-md-11 { grid-column: span 11; }
+  .mn-span-md-12 { grid-column: span 12; }
+}
+
+/* Responsive column spans for large (≥992px) screens */
+@media (min-width: 992px) {
+  .mn-span-lg-1 { grid-column: span 1; }
+  .mn-span-lg-2 { grid-column: span 2; }
+  .mn-span-lg-3 { grid-column: span 3; }
+  .mn-span-lg-4 { grid-column: span 4; }
+  .mn-span-lg-5 { grid-column: span 5; }
+  .mn-span-lg-6 { grid-column: span 6; }
+  .mn-span-lg-7 { grid-column: span 7; }
+  .mn-span-lg-8 { grid-column: span 8; }
+  .mn-span-lg-9 { grid-column: span 9; }
+  .mn-span-lg-10 { grid-column: span 10; }
+  .mn-span-lg-11 { grid-column: span 11; }
+  .mn-span-lg-12 { grid-column: span 12; }
+}
+
+/* Responsive column spans for extra large (≥1200px) screens */
+@media (min-width: 1200px) {
+  .mn-span-xl-1 { grid-column: span 1; }
+  .mn-span-xl-2 { grid-column: span 2; }
+  .mn-span-xl-3 { grid-column: span 3; }
+  .mn-span-xl-4 { grid-column: span 4; }
+  .mn-span-xl-5 { grid-column: span 5; }
+  .mn-span-xl-6 { grid-column: span 6; }
+  .mn-span-xl-7 { grid-column: span 7; }
+  .mn-span-xl-8 { grid-column: span 8; }
+  .mn-span-xl-9 { grid-column: span 9; }
+  .mn-span-xl-10 { grid-column: span 10; }
+  .mn-span-xl-11 { grid-column: span 11; }
+  .mn-span-xl-12 { grid-column: span 12; }
+}
+
+/* Utility classes */
+.mn-text-center { text-align: center; }
+.mn-text-left { text-align: left; }
+.mn-text-right { text-align: right; }
+
+/* Margin utilities */
+.mn-m-0 { margin: var(--mn-spacing-0) !important; }
+.mn-m-1 { margin: var(--mn-spacing-1) !important; }
+.mn-m-2 { margin: var(--mn-spacing-2) !important; }
+.mn-m-3 { margin: var(--mn-spacing-3) !important; }
+.mn-m-4 { margin: var(--mn-spacing-4) !important; }
+.mn-m-5 { margin: var(--mn-spacing-5) !important; }
+
+/* Padding utilities */
+.mn-p-0 { padding: var(--mn-spacing-0) !important; }
+.mn-p-1 { padding: var(--mn-spacing-1) !important; }
+.mn-p-2 { padding: var(--mn-spacing-2) !important; }
+.mn-p-3 { padding: var(--mn-spacing-3) !important; }
+.mn-p-4 { padding: var(--mn-spacing-4) !important; }
+.mn-p-5 { padding: var(--mn-spacing-5) !important; }
+
+/* Margin top/bottom/left/right utilities */
+.mn-mt-1 { margin-top: var(--mn-spacing-1) !important; }
+.mn-mr-1 { margin-right: var(--mn-spacing-1) !important; }
+.mn-mb-1 { margin-bottom: var(--mn-spacing-1) !important; }
+.mn-ml-1 { margin-left: var(--mn-spacing-1) !important; }
+
+.mn-mt-2 { margin-top: var(--mn-spacing-2) !important; }
+.mn-mr-2 { margin-right: var(--mn-spacing-2) !important; }
+.mn-mb-2 { margin-bottom: var(--mn-spacing-2) !important; }
+.mn-ml-2 { margin-left: var(--mn-spacing-2) !important; }
+
+.mn-mt-3 { margin-top: var(--mn-spacing-3) !important; }
+.mn-mr-3 { margin-right: var(--mn-spacing-3) !important; }
+.mn-mb-3 { margin-bottom: var(--mn-spacing-3) !important; }
+.mn-ml-3 { margin-left: var(--mn-spacing-3) !important; }
+
+/* Padding top/bottom/left/right utilities */
+.mn-pt-1 { padding-top: var(--mn-spacing-1) !important; }
+.mn-pr-1 { padding-right: var(--mn-spacing-1) !important; }
+.mn-pb-1 { padding-bottom: var(--mn-spacing-1) !important; }
+.mn-pl-1 { padding-left: var(--mn-spacing-1) !important; }
+
+.mn-pt-2 { padding-top: var(--mn-spacing-2) !important; }
+.mn-pr-2 { padding-right: var(--mn-spacing-2) !important; }
+.mn-pb-2 { padding-bottom: var(--mn-spacing-2) !important; }
+.mn-pl-2 { padding-left: var(--mn-spacing-2) !important; }
+
+.mn-pt-3 { padding-top: var(--mn-spacing-3) !important; }
+.mn-pr-3 { padding-right: var(--mn-spacing-3) !important; }
+.mn-pb-3 { padding-bottom: var(--mn-spacing-3) !important; }
+.mn-pl-3 { padding-left: var(--mn-spacing-3) !important; }
+
+/* SNES theme wrapper – overrides some colours to use the SNES palette */
+.mn-snes {
+  --mn-primary: var(--mn-snes-nature);
+  --mn-secondary: var(--mn-snes-plumber);
+  --mn-accent: var(--mn-snes-sunshine);
+}
+
+/* Example of using SNES palette for NES buttons */
+.mn-snes .nes-btn.is-primary { background-color: var(--mn-primary); }
+.mn-snes .nes-btn.is-success { background-color: var(--mn-secondary); }
+.mn-snes .nes-btn.is-warning { background-color: var(--mn-accent); }
+
+/* Provide box-shadow and border styles that follow the NES aesthetic.  NES.css
+   defines `.nes-container` with pixelated borders; we add subtle shadows. */
+.mn-card {
+  background-color: var(--mn-surface);
+  border: 4px solid var(--mn-border);
+  padding: var(--mn-spacing-3);
+  box-shadow: 4px 4px 0 0 var(--mn-shadow);
+}
