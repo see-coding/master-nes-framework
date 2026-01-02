@@ -34,39 +34,34 @@ Many retro themes work best on dark backgrounds, but accessibility guidelines re
 
 ## Installation
 
-There are two ways to install Master‑NES‑Styles: via a package manager or directly from a CDN.
+Master‑NES‑Styles is not published to npm or a CDN.  Download it from GitHub and include the bundled files locally.
 
-### Via npm/yarn
+1. **Download the repository**  
+   Grab the ZIP from https://github.com/see-coding/master-nes-framework (Code → Download ZIP) or clone it:
+   ```
+   git clone https://github.com/see-coding/master-nes-framework.git
+   ```
 
-```
-npm install master-nes-styles
-# or
-yarn add master-nes-styles
-```
+2. **Copy the bundle into your project**  
+   From this repo, copy the `dist/` folder to your project (e.g. `public/vendor/master-nes-styles/`).
 
-Then import the CSS into your application:
+3. **Reference the local files**
+   ```html
+   <head>
+     <!-- Press Start 2P font -->
+     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+     <!-- Master‑NES‑Styles bundle -->
+     <link rel="stylesheet" href="/vendor/master-nes-styles/master-nes-styles.css">
+     <!-- Optional theme toggling helper -->
+     <script src="/vendor/master-nes-styles/master-nes-styles.js"></script>
+   </head>
+   ```
 
-```js
-// Using a bundler like Vite, Webpack or Parcel
-import 'master-nes-styles/dist/master-nes-styles.css';
-// Optional JS for theme toggling
-import { loadTheme, toggleTheme } from 'master-nes-styles/dist/master-nes-styles.js';
-```
-
-### Via CDN
-
-Add the following `<link>` and `<script>` tags to your HTML:
-
-```html
-<head>
-  <!-- Press Start 2P font -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <!-- Master‑NES‑Styles bundle (includes NES.css, NES.icons and snes.css) -->
-  <link href="https://unpkg.com/master-nes-styles@latest/dist/master-nes-styles.css" rel="stylesheet">
-  <!-- Optional theme toggling helper -->
-  <script src="https://unpkg.com/master-nes-styles@latest/dist/master-nes-styles.js"></script>
-</head>
-```
+   If you use a bundler, import from the copied path instead:
+   ```js
+   import '/vendor/master-nes-styles/master-nes-styles.css';
+   import { loadTheme, toggleTheme } from '/vendor/master-nes-styles/master-nes-styles.js';
+   ```
 
 ## Usage
 
